@@ -4,81 +4,52 @@
 
 ## Table of Contents
 
-- 1 Introduction
-- 2 Setup
-- 3 General
-- 4 First start - track types
-- 5 Track Mute
-- 6 Record Mode
-- 7 Working with bars
-- 8 Loading and saving sequences
-- 9 Shift-functions
-   - 9.1 Shift-functions with options
-      - LastStep
-      - ClkDiv
-      - TrkMode
-      - Direction
-      - Quantization
-      - LFO wave
-      - Sync I/O
-      - Shuffle
-   - 9.2 Shift-functions without options
-      - ClrBar
-      - RemBar
-      - ClrPatt
-      - InitPattern
-      - SeqMode1
-      - SeqMode2
-      - StartMode
+1. Introduction
+2. Setup
+3. General
+4. First start - track types
+5. Track Mute
+6. Record Mode
+7. Working with bars
+8. Loading and saving sequences
+9. Shift-functions with options
+    * LastStep
+    * ClkDiv
+    * TrkMode
+    * Direction
+    * Quantization
+    * LFO wave
+    * Sync I/O
+    * Shuffle
+10. Shift-functions without options
+    * ClrBar
+    * RemBar
+    * ClrPatt
+    * InitPattern
+    * SeqMode1
+    * SeqMode2
+    * StartMode
 
-## 1 Introduction
+## 1. Introduction
 
-MFB's SEQ-03 module is a step-sequencer which is equally
-suited to trigger drum modules as well as to play and control
-synthesizers. In addition, each of the 12 available tracks may
-serve as an AR-envelope or LFO.
+MFB's SEQ-03 module is a step-sequencer which is equally suited to trigger drum modules as well as to play and control synthesizers. In addition, each of the 12 available tracks may serve as an AR-envelope or LFO.
 
-The SEQ-03 offers three operational modes that cover different
-applications:
+The SEQ-03 offers three operational modes that cover different applications:
 
-1. **Mode 1** : This mode allows every track to be used either
-    as CV- or gate-track, AR-envelope or LFO. Sequences
-    can be up to four bars in length with an adjustable
-    number of steps per bar. The speed, i.e. clock division is
-    set globally for all tracks. Shuffle is available but only
-    for use with the internal clock or at external clock with
-    24ppq resolution. Each track has a dedicated output.
-2. **Mode 2** : The modus equals mode 1 but is fixed to a
-    length of one bar. In exchange, this mode allows for
-    poly-rhythmical patterns. Each track may have an
-    individual number of steps as well as individual clock
-    division. Shuffle is not available in this mode.
-3. **Mode 3** : This mode is dedicated to control synthesizers
-    when wanting to adjust CV values and gate-information
-    per step simultaneously. There are two outputs assigned
-    per track. Track 1 uses jacks CG1 for CV- and CG2 for
-    gate output. Accordingly, this mode offers only six
-    tracks. The track types are fixed in this mode.
+1. **Mode 1** : This mode allows every track to be used either as CV- or gate-track, AR-envelope or LFO separately. Sequences can be up to four bars, or 64 steps, in length with an adjustable number of steps per bar. The speed, or clock division, is set globally for all tracks. Shuffle is available, but only for use with the internal clock or an external clock with 24 ppq resolution. Each track has a dedicated CGx output jack.
+2. **Mode 2** : This mode equals mode 1 but is fixed to one bar. In exchange, this mode allows for poly-rhythmical patterns. Each track may have an individual number of steps as well as individual clock division. Shuffle is not available in this mode.
+3. **Mode 3** : This mode is dedicated to controlling synthesizers with pairs of CV values and a fixed gate (trig) per step. There are two outputs assigned per track. Track 1 uses jacks CG1 for CV and CG2 for trig output, track 2 uses jacks CG3 for CV and CG4 for fixed trig output etc. Accordingly, this mode offers only six tracks, and the track types are fixed.
+
+**Note:** Switching operational modes forces the currently selected pattern to be initialized, i.e. all programmed step will be lost.
+
+## 2. Setup
+
+MFB's SEQ-03 is fully compatible to Doepfer’s A-100 modular system - in size, bus-power and CV/Gate voltage. Connect the 10-pin MFB-cable to a corresponded 16-pin jack on the mainframe bus. Supply voltage needs to be +/- 12 volts. The wattage is +25/-5 mA, the module size is 20HP (half pitches) equivalent to 101,3mm.
+
+**Attention:** Please, check for correct polarity! The colored side of the connector-cable needs to point downwards (-12 V)!
 
 
-**Note:** Switching operational modes forces the currently
-selected pattern to be initialized, i.e. all programmed step will
-be lost.
-
-## 2 Setup.......................................................................................
-
-MFB's SEQ-03 is fully compatible to Doepfer’s A-100 modular
-system - in size, bus-power and CV/Gate voltage. Connect the
-10-pin MFB-cable to a corresponded 16-pin jack on the
-mainframe bus. Supply voltage needs to be +/- 12 volts. The
-wattage is +25/-5mA, the module size is 20HP (half pitches)
-equivalent to 101,3mm.
-
-**Attention:** Please, check for correct polarity! The colored side
-of the connector-cable needs to point downwards (-12 V)!
-
-
-## 3 General....................................................................................
+## 3 General
 
 We have been trying to develop a complex sequencer in a
 compact module format that is still easy to use. Hopefully, we
@@ -467,8 +438,12 @@ This option selects the clock source.
 
 Step 1: internal clock, clock out: 16th, tempo control active
 Step 2: internal clock, clock out: 24ppq
-Step 2: external clock, 16th
-Step 3: external clock 24ppq
+Step 3: external clock, 16th, gate: start/pause (startmode on => reset)
+Step 4: external clock, 24ppq, gate: start/pause (startmode on => reset)
+
+When you have a SEQ-03 from serial 2 (if the bar up key is right and the bar down key is left, on the first series the printing was swapped) there are two additional modes:
+5: external sync 16th, without start/stop input, the start/stop is a reset
+6: external sync 96th, without start/stop input, the start/stop is a reset
 
 #### Shuffle............................................................................
 
@@ -516,16 +491,15 @@ LastStep, Direction and ClkDiv are being kept.
 This function initializes the selected pattern. Here, all steps are
 deleted and all track-settings are reset to their initial states.
 
-### SeqMode
+### SeqMode1
 
 The sequencer is set to operational mode 1.
 
-
-### SeqMode
+### SeqMode2
 
 The sequencer is set to operational mode 2.
 
-### SeqMode
+### SeqMode3
 
 The sequencer is set to operational mode 3.
 
