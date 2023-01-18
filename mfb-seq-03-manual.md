@@ -35,7 +35,6 @@
 MFB's SEQ-03 module is a step-sequencer which is equally suited to trigger drum modules as well as to play and control synthesizers. In addition, each of the 12 available tracks may serve as an AR-envelope or LFO.
 
 ## 1. Sequencer Modes
-
 The SEQ-03 offers three operational modes that cover different applications:
 
 **Mode 1** : This mode allows every track to be used either as CV- or gate-track, AR-envelope or LFO separately. Sequences can be up to four bars, or 64 steps, in length with an adjustable number of steps per bar. The speed, or clock division, is set globally for all tracks. Shuffle is available, but only for use with the internal clock or an external clock with 24 ppq resolution. Each track has a dedicated output jack.
