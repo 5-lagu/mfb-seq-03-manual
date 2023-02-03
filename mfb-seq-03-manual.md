@@ -1,5 +1,7 @@
 # SEQ-03 Module
 
+!["MFB SEQ-03 front panel"](mfb_seq03.jpg)
+
 ## Operating Manual
 
 ### Table of Contents
